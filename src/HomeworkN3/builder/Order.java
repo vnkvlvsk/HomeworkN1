@@ -8,6 +8,10 @@ public class Order {
 
     private Order() {}
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     public String toString() {
         return "Заказ: " + customerName + ", товар: " + item +
                ", кол-во: " + quantity + ", адрес: " + address;

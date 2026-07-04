@@ -1,5 +1,7 @@
 package HomeworkN3.strategy;
 
+import java.math.BigDecimal;
+
 public class OrderCheckout {
     private PaymentStrategy strategy;
 
@@ -7,7 +9,7 @@ public class OrderCheckout {
         this.strategy = strategy;
     }
 
-    public void pay(double amount) {
+    public void pay(BigDecimal amount) {
         strategy.pay(amount);
     }
 }

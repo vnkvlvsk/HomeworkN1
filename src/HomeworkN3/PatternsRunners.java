@@ -18,6 +18,8 @@ import HomeworkN3.strategy.CreditCardPayment;
 import HomeworkN3.strategy.OrderCheckout;
 import HomeworkN3.strategy.PayPalPayment;
 
+import java.math.BigDecimal;
+
 public class PatternsRunners {
 
     public static void main(String[] args) {
@@ -33,11 +35,11 @@ public class PatternsRunners {
         System.out.println("=== Стратегия ===");
         OrderCheckout checkout = new OrderCheckout();
         checkout.setStrategy(new CreditCardPayment());
-        checkout.pay(1000);
+        checkout.pay(BigDecimal.valueOf(1000));
         checkout.setStrategy(new PayPalPayment());
-        checkout.pay(500);
+        checkout.pay(BigDecimal.valueOf(500));
         checkout.setStrategy(new CashPayment());
-        checkout.pay(300);
+        checkout.pay(BigDecimal.valueOf(300));
     }
 
     public static void runChainOfResponsibility() {
@@ -55,7 +57,7 @@ public class PatternsRunners {
 
     public static void runBuilder() {
         System.out.println("\n=== Билдер ===");
-        Order order = new Order.Builder()
+        Order order = Order.builder()
                 .customerName("Иван")
                 .item("Ноутбук")
                 .quantity(1)
